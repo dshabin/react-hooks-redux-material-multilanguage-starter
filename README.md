@@ -1,6 +1,8 @@
 
 # react-hooks-redux-material-multilanguage-starter
 
+![alt text](https://github.com/dshabin/react-hooks-redux-material-multilanguage-starter/blob/master/screen.gif?raw=true "screenshot")
+
 ### `yarn install`
 ### `yarn start`
 
