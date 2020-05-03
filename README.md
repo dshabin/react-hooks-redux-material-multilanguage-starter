@@ -6,6 +6,8 @@
 ### `yarn install`
 ### `yarn start`
 
+### backend : https://github.com/dshabin/django-drf-aws-elastic-beanstalk-starter
+
 ```
 .
 ├── _actions
