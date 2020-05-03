@@ -52,11 +52,17 @@ function App() {
   const classes = useStyles();
   const dispach = useDispatch();
   const { i18n } = useTranslation();
-  const currentUser = useSelector(state => state.authentication.user);
-  const fetchingCurrent = useSelector(state => state.authentication.fetchingCurrent);
   const currentLanguage = useSelector(state => state.languageSelect.language);
   const [theme, setTheme] = useState(createMuiTheme(themeObject))
-  document.body.style.backgroundColor = theme.palette.primary.bodyBackground;
+
+  useEffect(() => {
+    console.log('mounted')
+    document.body.style.backgroundColor = theme.palette.primary.bodyBackground;
+    if (localStorage.getItem('user')) {
+      dispach(userActions.fetchCurrent());
+    }     // eslint-disable-next-line
+  }, []); // When it's an empty list, the callback will only be fired once, similar to componentDidMount.
+
 
   useEffect(() => {
     if (currentLanguage) {
@@ -68,9 +74,6 @@ function App() {
     }
   }, [currentLanguage, i18n]);
 
-  if ((localStorage.getItem('user')) && (!currentUser) && (!fetchingCurrent)) {
-    dispach(userActions.fetchCurrent())
-  }
   return (
     <div className={classes.root}>
       <StylesProvider jss={jss}>
