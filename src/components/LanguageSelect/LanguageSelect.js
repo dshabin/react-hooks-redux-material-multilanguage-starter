@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,20 +17,10 @@ const useStyles = makeStyles((theme) => ({
 
 function LanguageSelect(props) {
     const classes = useStyles();
-    const [state, setState] = React.useState({
-        language: 'en',
-    });
-
-
-    const handleChange = (event) => {
-        setState({
-            language: event.target.value,
-        });
-    };
     const dispach = useDispatch()
-    useEffect(() => {
-        dispach(languageSelectActions.changeLanguage(state.language))
-    }, [state, dispach]);
+    const handleChange = (event) => {
+        dispach(languageSelectActions.changeLanguage(event.target.value))
+    };
 
     return (
         <FormControl className={classes.formControl}>
