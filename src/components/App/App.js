@@ -50,12 +50,12 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
+  const dispach = useDispatch();
+  const { i18n } = useTranslation();
   const currentUser = useSelector(state => state.authentication.user);
   const fetchingCurrent = useSelector(state => state.authentication.fetchingCurrent);
   const currentLanguage = useSelector(state => state.languageSelect.language);
-  const { i18n } = useTranslation();
   const [theme, setTheme] = useState(createMuiTheme(themeObject))
-  const dispach = useDispatch()
   document.body.style.backgroundColor = theme.palette.primary.bodyBackground;
 
   useEffect(() => {

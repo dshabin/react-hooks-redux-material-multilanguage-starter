@@ -53,7 +53,6 @@ function NavBar(props) {
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const classes = useStyles();
     const currentUser = useSelector(state => state.authentication.user);
-    const fetchingCurrent = useSelector(state => state.authentication.fetchingCurrent);
     const dispach = useDispatch()
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const location = useLocation();
@@ -80,9 +79,6 @@ function NavBar(props) {
     const handleLogout = () => {
         dispach(userActions.logout())
         setMobileOpen(false);
-    }
-    if ((localStorage.getItem('user')) && (!currentUser) && (!fetchingCurrent)) {
-        dispach(userActions.fetchCurrent())
     }
 
     const drawer = (
