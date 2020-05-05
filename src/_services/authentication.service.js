@@ -16,7 +16,7 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`${config.apiUrl}/api/auth/login/`, requestOptions)
+    return fetch(`${config.apiUrl}/api/auth/signin/`, requestOptions)
         .then(handleResponse)
         .then(data => {
             localStorage.setItem('user', JSON.stringify(data.data));
@@ -35,7 +35,7 @@ function fetchCurrent() {
         headers: authHeader()
     };
 
-    return fetch(`${config.apiUrl}/api/users/fetch-current/`, requestOptions)
+    return fetch(`${config.apiUrl}/api/auth/fetch-current/`, requestOptions)
         .then(handleResponse)
         .then(data => {
             localStorage.setItem('user', JSON.stringify(data.data));
@@ -51,7 +51,7 @@ function register(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`${config.apiUrl}/api/users/`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/api/auth/signup/`, requestOptions).then(handleResponse);
 }
 
 
