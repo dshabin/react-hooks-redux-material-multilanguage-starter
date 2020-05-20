@@ -30,7 +30,11 @@ const useStyles = makeStyles((theme) => ({
     },
     spinner: {
         marginRight: theme.spacing(1)
-    }
+    },
+    link: {
+        textDecoration: 'none',
+        color: theme.palette.primary.linkColor
+    },
 }));
 
 function Signup() {
@@ -171,7 +175,7 @@ function Signup() {
                         </Button>
                         <Grid container>
                             <Grid item>
-                                <Link style={{ textDecoration: 'none' }} to="/login" variant="body2">
+                                <Link className={classes.link} to="/login" variant="body2">
                                     {t("Already have an account? Sign in")}
                                 </Link>
                             </Grid>

@@ -5,7 +5,7 @@ import { Box, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        paddingTop : theme.spacing(2)
+        padding : theme.spacing(2)
     }
 }));
 

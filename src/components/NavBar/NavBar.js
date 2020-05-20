@@ -23,6 +23,7 @@ import { useLocation } from 'react-router-dom';
 import { Box } from '@material-ui/core';
 import { useTranslation } from "react-i18next";
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const drawerWidth = 240;
 
@@ -30,12 +31,16 @@ const useStyles = makeStyles((theme) => ({
     drawerPaper: {
         width: drawerWidth,
     },
+    appBar: {
+        backgroundColor: theme.palette.primary.appBarColor,
+        borderBottom: '2px solid ' + theme.palette.primary.main,
+    },
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
     },
     menuButton: {
-        marginRight: theme.spacing(2),
+        //marginRight: theme.spacing(2),
     },
     loginBtn: {
         marginRight: theme.spacing(1)
@@ -43,7 +48,15 @@ const useStyles = makeStyles((theme) => ({
     languageSelect: {
         marginRight: theme.spacing(1)
     },
-    drawerHeader: theme.mixins.toolbar
+    balance: {
+        color: "#388e3c"
+    },
+    drawerHeader: theme.mixins.toolbar,
+    spinner: {
+        marginRight: theme.spacing(1),
+        lineHeight: '0px'
+    },
+
 }));
 
 
@@ -53,6 +66,8 @@ function NavBar(props) {
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const classes = useStyles();
     const currentUser = useSelector(state => state.authentication.user);
+    const fetchingCurrent = useSelector(state => state.authentication.fetchingCurrent);
+
     const dispach = useDispatch()
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const location = useLocation();
@@ -86,9 +101,9 @@ function NavBar(props) {
             <List disablePadding>
                 {/* <div className={classes.toolbar} /> */}
                 <ListItem className={classes.drawerHeader}>
-                    <Typography variant="h5">
+                    {/* <Typography variant="h5">
                         LOGO
-                    </Typography>
+                    </Typography> */}
                 </ListItem>
                 <Divider />
                 <ListItem
@@ -140,6 +155,27 @@ function NavBar(props) {
         <div>
             <AppBar elevation={1} position="fixed" className={classes.appBar}>
                 <Toolbar>
+                    {fetchingCurrent &&
+                        <div className={classes.spinner}>
+                            <CircularProgress thickness={6} size={16} />
+                        </div>
+                    }
+                    {!currentUser && !fetchingCurrent &&
+                        <>
+                            <Box className={classes.loginBtn}>
+                                <Link to='/login' style={{ textDecoration: 'none' }}>
+                                    <Button size="small" variant="contained" color="primary">
+                                        {t("Sign In")}
+                                    </Button>
+                                </Link>
+                            </Box>
+                            <Link to='/signup' style={{ textDecoration: 'none' }}>
+                                <Button size="small" variant="contained" color="primary">
+                                    {t("Sign Up")}
+                                </Button>
+                            </Link>
+                        </>
+                    }
                     {currentUser && <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -149,29 +185,9 @@ function NavBar(props) {
                     >
                         <MenuIcon />
                     </IconButton>}
-                    <Typography style={{ flexGrow: 1 }} component="h6" variant="h6">
-                        APP
-                    </Typography>
-                    {!currentUser &&
-                        <>
-                            <Box className={classes.loginBtn}>
-                                <Link to='/login' style={{ textDecoration: 'none' }}>
-                                    <Button size="small" variant="contained" color="secondary">
-                                        <Typography variant="caption">
-                                            {t("Sign In")}
-                                        </Typography>
-                                    </Button>
-                                </Link>
-                            </Box>
-                            <Link to='/signup' style={{ textDecoration: 'none' }}>
-                                <Button size="small" variant="contained" color="secondary">
-                                    <Typography variant="caption">
-                                        {t("Sign Up")}
-                                    </Typography>
-                                </Button>
-                            </Link>
-                        </>
-                    }
+
+
+
                 </Toolbar>
             </AppBar>
             <Box className={classes.drawer}>

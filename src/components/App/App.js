@@ -28,22 +28,37 @@ const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 const themeObject = {
   direction: 'ltr',
   palette: {
-    type: 'light',
+    type: 'dark',
     primary: {
       main: '#3F88C5',
-      bodyBackground: '#fafafa'
+      bodyBackground: '#0f1028',
+      appBarColor : '#0f1028',
+      linkColor : '#ffffff'
     },
     secondary: {
       main: '#ffba08'
+    },
+  },
+  overrides: {
+    MuiPaper: {
+      root: {
+        backgroundColor: '#20244d',
+      },
+    },
+    MuiButton: {
+      root: {
+        fontWeight : '500'
+      }
     }
   },
 }
+
 
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    // padding: theme.spacing(3),
   },
   drawerHeader: theme.mixins.toolbar
 }));
