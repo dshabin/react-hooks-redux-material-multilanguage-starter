@@ -4,12 +4,16 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import { useSelector,useDispatch } from 'react-redux';
 import { notificationActions } from '../../_actions/notification.actions';
+import { useTranslation } from "react-i18next";
+
 
 
 export default function Notification() {
     const [open, setOpen] = React.useState(false);
     const notification = useSelector(state => state.notification);
     const dispatch = useDispatch()
+    const { t } = useTranslation();
+
 
     // Similar to componentDidMount and componentDidUpdate:
     useEffect(() => {
@@ -36,7 +40,7 @@ export default function Notification() {
                 open={open}
                 autoHideDuration={6000}
                 onClose={handleClose}
-                message={notification && notification.message}
+                message={notification && t(notification.message)}
                 action={
                     <React.Fragment>
                         <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>

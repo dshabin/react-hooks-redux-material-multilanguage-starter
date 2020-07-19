@@ -14,5 +14,7 @@
     "Username required": "نام کاربری الزامی است",
     "Password required": "رمز عبور الزامی است",
     "Password missmatch": "رمز های عبور همخوان نیستند",
-    "Confirm password required": "تکرار رمز عبور الزامی است"
+    "Confirm password required": "تکرار رمز عبور الزامی است",
+    "Invalid username or password" : "نام کاربری یا رمز عبور اشتباه است",
+    "User already exists" : "کاربری با این نام وجود دارد"
 }
