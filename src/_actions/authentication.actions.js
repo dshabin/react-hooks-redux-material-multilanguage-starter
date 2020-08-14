@@ -18,7 +18,7 @@ function login(username, password) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/dashboard');
+                    history.push('/dashboard/overview');
                 },
                 error => {
                     appLogger(error.toString())
@@ -72,7 +72,7 @@ function register(username,password) {
                 user => { 
                     dispatch(success());
                     history.push('/login');
-                    dispatch(notificationActions.success('REGISTRATION_SUCCESSFUL'));
+                    dispatch(notificationActions.success('Registration successful'));
                 },
                 error => {
                     dispatch(failure(error.toString()));

@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import LanguageSelect from '../LanguageSelect/LanguageSelect';
 import { Box, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,7 +14,7 @@ function Footer(props) {
         <Box className={classes.paper}>
             <Grid container>
                 <Grid item xs={12}>
-                    <LanguageSelect />
+                    {/* <LanguageSelect /> */}
                 </Grid>
             </Grid>
         </Box>

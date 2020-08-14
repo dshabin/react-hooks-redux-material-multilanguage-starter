@@ -14,7 +14,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from '../../_actions';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import GroupIcon from '@material-ui/icons/Group';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { Link } from 'react-router-dom';
@@ -72,16 +71,14 @@ function NavBar(props) {
     const location = useLocation();
     useEffect(() => {
         const currentPath = location.pathname;
-        if (currentPath === '/dashboard') {
+        if (currentPath.includes('/dashboard/overview')) {
             setSelectedIndex(0)
         }
         // use include to handle nested routes
         if (currentPath.includes('/dashboard/settings')) {
             setSelectedIndex(2)
         }
-        if (currentPath.includes('/dashboard/users')) {
-            setSelectedIndex(1)
-        }
+       
     }, [location]);
 
     const handleDrawerToggle = () => {
@@ -107,30 +104,20 @@ function NavBar(props) {
                 <Divider />
                 <ListItem
                     button
-                    key={'DASHBOARD'}
+                    key={'OVERVIEW'}
                     selected={selectedIndex === 0}
                     component={Link}
-                    to="/dashboard"
+                    to="/dashboard/overview"
                     onClick={handleCloseDrawer}
                 >
                     <ListItemIcon>
                         <DashboardIcon />
                     </ListItemIcon>
-                    <ListItemText primary={t("Dashboard")} />
+                    <ListItemText primary={t("Overview")} />
                 </ListItem>
-                <ListItem button key={'USERS'}
-                    selected={selectedIndex === 1}
-                    component={Link}
-                    to="/dashboard/users"
-                    onClick={handleCloseDrawer}
-                >
-                    <ListItemIcon>
-                        <GroupIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={t("Users")} />
-                </ListItem>
+                
                 <ListItem button key={'SETTINGS'}
-                    selected={selectedIndex === 2}
+                    selected={selectedIndex === 1}
                     component={Link}
                     to="/dashboard/settings"
                     onClick={handleCloseDrawer}

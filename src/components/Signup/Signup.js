@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2)
     },
+    container: {
+        padding: theme.spacing(2)
+    },
     avatar: {
         backgroundColor: theme.palette.secondary.main,
     },
@@ -97,7 +100,7 @@ function Signup() {
         dispatch(userActions.register(inputs.username, inputs.password));
     }
     return (
-        <Grid container justify="center">
+        <Grid container justify="center" className={classes.container}>
             <Grid item xs={12} sm={6}  >
                 <Paper className={classes.paper}>
 

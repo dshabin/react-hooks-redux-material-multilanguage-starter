@@ -12,6 +12,9 @@ import { useTranslation } from "react-i18next";
 import { Paper } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+  container : {
+    padding : theme.spacing(2)
+  },
   paper: {
     padding : theme.spacing(2)
   },
@@ -80,7 +83,7 @@ function Login() {
 
   }
   return (
-    <Grid container justify="center">
+    <Grid container justify="center" className={classes.container}>
       <Grid item xs={12} sm={6}  >
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h5">
