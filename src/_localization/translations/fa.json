@@ -1,0 +1,20 @@
+{
+    "Sign In": "ورود",
+    "Username": "نام کاربری",
+    "Password": "رمزعبور",
+    "Don't have an account? Sign Up": "عضو نیستید ؟ ثبت نام کنید",
+    "Sign Up": "ثبت نام",
+    "Already have an account? Sign in": "حساب دارید ؟ وارد شوید",
+    "Confirm password": "تکرار رمز عبور",
+    "Language": "زبان",
+    "Logout": "خروج",
+    "Users": "کاربران",
+    "Dashboard": "داشبورد",
+    "Settings": "تنظیمات",
+    "Username required": "نام کاربری الزامی است",
+    "Password required": "رمز عبور الزامی است",
+    "Password missmatch": "رمز های عبور همخوان نیستند",
+    "Confirm password required": "تکرار رمز عبور الزامی است",
+    "Invalid username or password" : "نام کاربری یا رمز عبور اشتباه است",
+    "User already exists" : "کاربری با این نام وجود دارد"
+}
