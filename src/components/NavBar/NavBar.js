@@ -187,7 +187,7 @@ function NavBar(props) {
                     </Box>
                     <Box>
                         <a href="/">
-                            <img width="156" alt="logo" src={logo} />
+                            <img width="120" alt="logo" src={logo} />
                         </a>
                     </Box>
                 </Toolbar>

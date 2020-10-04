@@ -19,7 +19,9 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2)
     },
     container: {
-        padding: theme.spacing(2)
+        paddingTop: theme.spacing(4),
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2)
     },
     avatar: {
         backgroundColor: theme.palette.secondary.main,
